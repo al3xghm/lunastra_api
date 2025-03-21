@@ -14,7 +14,6 @@ class Controller {
     
             // Si des données de réservation sont envoyées (création de réservation)
             if (isset($data->prenom)) {
-                // Traiter la réservation (ajouter un ID et sauvegarder dans le fichier JSON)
                 $id = $model->addReservation($data);
     
                 // Réponse de succès
