@@ -94,11 +94,9 @@ class ReservationModel {
         $id = $pdo->lastInsertId();
     
 $formattedDate = date("d M Y", strtotime($data->date)); 
-// Envoi de l'email
 $to = $data->email;  
 $subject = "Confirmation de votre réservation";
 
-// Construction du message
 $message = "
     <html>
     <head>
@@ -165,6 +163,7 @@ $message = "
             </div>
             <p>Merci de votre confiance, et à bientôt!</p>
             <div class='footer'>
+                <p>2 rue Albert Einstein, Champs-sur-Marne 77420</p>
                 <p>© 2025 Lunastra - Tous droits réservés</p>
             </div>
         </div>
@@ -172,14 +171,12 @@ $message = "
     </html>
 ";
 
-// En-têtes
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
 $headers .= "From: no-reply@lunastra.fr";  
 
 
     
-        // Envoi de l'email
         if (mail($to, $subject, $message, $headers)) {
             echo json_encode([
                 'success' => true,
@@ -210,7 +207,6 @@ $headers .= "From: no-reply@lunastra.fr";
             ]);
         }
     
-        // Sauvegarde dans le fichier JSON
         $reservations = $this->getReservationsFromFile();
         $reservations[] = [
             'id' => $id,

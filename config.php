@@ -2,9 +2,9 @@
 return [
     'db' => [
         'host' => 'localhost',
-        'dbname' => 'ghmir_lunastra_api',
-        'username' => 'ghmir_admin',
-        'password' => 'Lunastra2025@',
+        'dbname' => 'lunastra_api',
+        'username' => 'root',
+        'password' => 'root',
     ],
     'secret_key' => 'luneinstein'
 ];
